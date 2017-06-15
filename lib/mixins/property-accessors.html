@@ -322,7 +322,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             break;
 
           case Boolean:
-            outValue = (value !== null);
+            if (value === null) {
+              outValue = false;
+            } else if (value.toLowerCase() === "true") {
+              outValue = true;
+            } else if (value.toLowerCase() === "false") {
+              outValue = false;
+            } else {
+              outValue = false;
+            }
             break;
 
           case Object:
